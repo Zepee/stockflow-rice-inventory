@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f5">
+    <meta name="description" content="Pratinjau interaktif StockFlow, aplikasi manajemen persediaan beras.">
+    <title>StockFlow — Pratinjau</title>
+    <style>
+        :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#17211f;background:#f4f6f5;font-synthesis:none;text-rendering:optimizeLegibility;--ink:#17211f;--muted:#697571;--line:#e1e7e4;--paper:#fff;--green:#087f5b;--green-soft:#e8f5ef;--navy:#152b29;--amber:#946200;--amber-soft:#fff5d8;--red:#a13e35;--red-soft:#fcecea}
+        *{box-sizing:border-box}body{margin:0;min-width:320px}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:248px;background:var(--navy);color:#e9f1ee;padding:22px 16px;display:flex;flex-direction:column;z-index:4}.brand{display:flex;align-items:center;gap:11px;padding:2px 10px 25px;border-bottom:1px solid #ffffff20}.brand-mark{width:34px;height:34px;background:#e8f5ef;color:#087f5b;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:18px}.brand-name{font-size:16px;font-weight:700;letter-spacing:-.02em}.brand-caption{display:block;color:#9db2aa;font-size:10px;letter-spacing:.11em;text-transform:uppercase;margin-top:2px}.nav-group{padding-top:21px}.nav-label{color:#8da49b;font-size:10px;text-transform:uppercase;letter-spacing:.12em;padding:0 11px 9px}.nav-link{display:flex;align-items:center;gap:12px;padding:10px 11px;margin:2px 0;border-radius:7px;color:#bdcbc5;font-size:13px;font-weight:550;transition:background .16s,color .16s}.nav-link:hover{background:#ffffff0e;color:#fff}.nav-link.active{color:#fff;background:#ffffff17}.nav-icon{width:18px;height:18px;display:grid;place-items:center;color:#9db9ae}.sidebar-bottom{margin-top:auto;border-top:1px solid #ffffff20;padding:14px 10px 0;color:#a9bcb4;font-size:11px;line-height:1.6}.main{margin-left:248px;min-height:100vh}.topbar{height:66px;background:#ffffffc9;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:3;backdrop-filter:blur(10px)}.crumb{font-size:12px;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px}.demo-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #bfdfcf;background:#f1faf5;color:#176b4e;border-radius:999px;font-size:11px;font-weight:650}.demo-dot{width:7px;height:7px;background:#24a36f;border-radius:50%}.avatar{width:31px;height:31px;border-radius:50%;background:#e3eee9;color:#255c49;display:grid;place-items:center;font-size:11px;font-weight:700}.content{max-width:1400px;padding:29px 34px 80px;margin:0 auto}.heading-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:23px}.eyebrow{margin:0 0 6px;color:var(--green);font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:750}.page-title{margin:0;font-size:26px;line-height:1.2;letter-spacing:-.035em;font-weight:680}.page-subtitle{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.actions{display:flex;gap:9px}.btn{border:1px solid var(--line);border-radius:7px;padding:9px 13px;background:#fff;color:var(--ink);font-size:12px;font-weight:650;transition:background .15s,border-color .15s}.btn:hover{background:#f7faf8;border-color:#c5d0ca}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#066b4d}.btn:focus-visible,.nav-link:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #70c6a3;outline-offset:2px}.notice{display:flex;align-items:flex-start;gap:11px;border:1px solid #d8e9df;background:#f7fbf8;color:#406252;border-radius:8px;padding:12px 14px;margin-bottom:19px;font-size:11px;line-height:1.55}.notice strong{color:#21563f}.notice-mark{font-weight:800;color:var(--green);font-size:15px;line-height:1}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:17px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:15px 16px}.stat-label{font-size:11px;color:var(--muted)}.stat-value{font-size:23px;letter-spacing:-.04em;font-weight:690;margin-top:9px}.stat-foot{font-size:10px;color:#7c8883;margin-top:5px}.stat-warn .stat-value{color:var(--amber)}.grid-main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.9fr);gap:15px}.panel{border:1px solid var(--line);border-radius:9px;background:#fff;overflow:hidden}.panel-head{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.panel-title{margin:0;font-size:13px;font-weight:680}.panel-meta{margin:4px 0 0;color:var(--muted);font-size:10px}.panel-body{padding:16px 17px}.chart{height:168px;display:flex;align-items:end;gap:14px;padding:8px 4px 0;border-bottom:1px solid var(--line);background:repeating-linear-gradient(to bottom,transparent 0,transparent 40px,#eef2ef 41px)}.bar-col{flex:1;height:100%;display:flex;align-items:center;justify-content:end;flex-direction:column;gap:7px}.bar-pair{width:min(50px,85%);height:calc(var(--h)*1%);min-height:8px;display:flex;align-items:end;gap:4px}.bar{flex:1;background:#91cbb1;border-radius:4px 4px 0 0}.bar.out{background:#c6d3cd}.bar-label{font-size:9px;color:#76827d;padding-bottom:8px}.legend{display:flex;gap:13px;align-items:center;margin-top:11px;color:var(--muted);font-size:10px}.legend i{display:inline-block;width:7px;height:7px;border-radius:2px;background:#91cbb1;margin-right:5px}.legend .out-dot{background:#c6d3cd}.table-wrap{width:100%;overflow-x:auto}.table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap}.table th{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#7b8882;font-weight:650;background:#fafcfb;padding:10px 13px;border-bottom:1px solid var(--line)}.table td{font-size:11px;color:#35423d;padding:11px 13px;border-bottom:1px solid #edf1ef}.table tr:last-child td{border-bottom:0}.product-name{font-weight:650;color:var(--ink)}.sub-text{display:block;color:#85908b;font-size:9px;margin-top:3px}.status{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:650;background:#eef5f1;color:#3f7058}.status.warn{background:var(--amber-soft);color:var(--amber)}.status.cancelled{background:var(--red-soft);color:var(--red)}.stock-low{color:var(--amber);font-weight:650}.activity-list{display:grid}.activity{display:grid;grid-template-columns:27px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1ef}.activity:last-child{border-bottom:0}.activity-sign{width:25px;height:25px;border-radius:7px;display:grid;place-items:center;background:var(--green-soft);color:var(--green);font-size:14px;font-weight:650}.activity-sign.minus{background:#f1f4f2;color:#596761}.activity-title{font-size:10px;font-weight:650}.activity-desc{font-size:9px;color:var(--muted);margin-top:3px}.activity-qty{font-size:10px;font-weight:700}.section{display:none}.section.active{display:block;animation:appear .18s ease both}@keyframes appear{from{opacity:.35;transform:translateY(3px)}to{opacity:1;transform:none}}.search-row{display:flex;gap:9px;align-items:center;margin-bottom:13px}.search{flex:1;min-width:0;border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 11px;font-size:11px}.filter{border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 11px;font-size:11px;color:#44514b}.mobile-nav{display:none}.mobile-header{display:none}.empty-note{color:var(--muted);font-size:11px;padding:22px;text-align:center}.dialog{border:0;border-radius:12px;padding:0;width:min(520px,calc(100vw - 24px));box-shadow:0 25px 80px #132c2438}.dialog::backdrop{background:#0f1f1bd1}.dialog-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:start}.dialog-head h2{margin:0;font-size:17px}.dialog-head p{margin:5px 0 0;font-size:11px;color:var(--muted)}.x-btn{border:0;background:transparent;color:#68756f;font-size:22px;line-height:1}.dialog-body{padding:19px 20px}.field{display:grid;gap:6px;margin-bottom:13px}.field label{font-size:11px;font-weight:650}.field input,.field select{border:1px solid var(--line);border-radius:7px;padding:10px 11px;background:#fff;color:var(--ink);font-size:12px}.field-hint{color:var(--muted);font-size:10px}.dialog-foot{padding:13px 20px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px}.toast{position:fixed;z-index:10;right:20px;bottom:20px;background:#183c31;color:white;border-radius:8px;padding:13px 15px;font-size:11px;box-shadow:0 8px 30px #14231d35;transform:translateY(20px);opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.footer-note{margin-top:14px;color:#83908a;font-size:9px;text-align:right}
+        @media(max-width:1050px){.sidebar{width:216px}.main{margin-left:216px}.content{padding-inline:24px}.topbar{padding-inline:24px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-main{grid-template-columns:1fr}}
+        @media(max-width:700px){.sidebar{display:none}.main{margin:0}.topbar{height:57px;padding:0 15px}.crumb{display:none}.mobile-header{display:flex;align-items:center;gap:9px}.mobile-header .brand-mark{width:29px;height:29px}.mobile-header strong{font-size:13px}.content{padding:21px 14px 94px}.heading-row{align-items:flex-start;flex-direction:column;margin-bottom:16px;gap:13px}.page-title{font-size:23px}.page-subtitle{font-size:12px}.actions{width:100%}.actions .btn{flex:1}.stats{gap:8px;margin-bottom:10px}.stat{padding:12px}.stat-value{font-size:19px;margin-top:7px}.stat-label{font-size:10px}.stat-foot{font-size:9px}.panel-head{padding:13px}.panel-body{padding:12px}.chart{height:145px;gap:7px}.grid-main{gap:10px}.panel-title{font-size:12px}.table th{padding:9px 10px}.table td{padding:10px;font-size:10px}.search-row{flex-wrap:wrap}.search{flex-basis:100%}.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;inset:auto 0 0;z-index:5;background:#fffffff2;border-top:1px solid var(--line);padding:6px 6px max(7px,env(safe-area-inset-bottom));backdrop-filter:blur(14px)}.mobile-nav .nav-link{flex-direction:column;justify-content:center;gap:4px;margin:0;padding:5px 1px;border-radius:7px;font-size:9px;color:#66736d}.mobile-nav .nav-link.active{background:#e9f5ef;color:#176b4e}.mobile-nav .nav-icon{font-size:15px}.demo-pill{font-size:10px;padding:6px 8px}.avatar{width:28px;height:28px}.footer-note{text-align:left}.toast{left:12px;right:12px;bottom:82px;text-align:center}}
+        .stock-bars{display:grid;gap:13px}.stock-bar-row{display:grid;grid-template-columns:minmax(130px,1fr) minmax(100px,2fr) 55px;gap:12px;align-items:center}.stock-bar-name{font-size:10px;color:#41504a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bar-track{height:7px;background:#eef2ef;border-radius:99px;overflow:hidden}.bar-fill{height:100%;background:#77b99a;border-radius:99px}.stock-bar-value{font-size:10px;text-align:right;color:#53615b;font-variant-numeric:tabular-nums}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    </style>
+</head>
+<body>
+<div class="shell">
+    <aside class="sidebar" aria-label="Navigasi utama">
+        <div class="brand"><span class="brand-mark">S</span><span class="brand-name">StockFlow<span class="brand-caption">Inventory workspace</span></span></div>
+        <div class="nav-group"><div class="nav-label">Ringkasan</div>
+            <a class="nav-link active" href="#dashboard" data-view="dashboard"><span class="nav-icon">▦</span>Dasbor</a>
+            <a class="nav-link" href="#products" data-view="products"><span class="nav-icon">▤</span>Produk</a>
+        </div>
+        <div class="nav-group"><div class="nav-label">Operasional</div>
+            <a class="nav-link" href="#purchases" data-view="purchases"><span class="nav-icon">↓</span>Pembelian</a>
+            <a class="nav-link" href="#sales" data-view="sales"><span class="nav-icon">↑</span>Penjualan</a>
+            <a class="nav-link" href="#movements" data-view="movements"><span class="nav-icon">⇄</span>Riwayat stok</a>
+            <a class="nav-link" href="#reports" data-view="reports"><span class="nav-icon">▥</span>Laporan</a>
+        </div>
+        <div class="sidebar-bottom">Pratinjau publik · data latihan<br>Perubahan tidak disimpan.</div>
+    </aside>
+    <div class="main">
+        <header class="topbar">
+            <div class="mobile-header"><span class="brand-mark">S</span><strong>StockFlow</strong></div>
+            <div class="crumb">Workspace <span style="color:#adb7b2">/</span> <span id="breadcrumb">Dasbor</span></div>
+            <div class="top-actions"><span class="demo-pill"><i class="demo-dot"></i>Mode pratinjau</span><span class="avatar" aria-label="Akun pratinjau">SF</span></div>
+        </header>
+        <main class="content">
+            <section class="section active" id="view-dashboard">
+                <div class="heading-row"><div><p class="eyebrow">Kamis, 5 November 2026</p><h1 class="page-title">Ringkasan persediaan</h1><p class="page-subtitle">Pantau kondisi stok dan aktivitas gudang Anda.</p></div><div class="actions"><button class="btn" data-go="movements">Lihat riwayat</button><button class="btn primary" data-open="purchase">Catat barang masuk</button></div></div>
+                <div class="notice"><span class="notice-mark">i</span><div><strong>Ini data contoh untuk pratinjau.</strong> Simulasi transaksi berjalan di browser ini saja. Tidak ada yang disimpan ke server, dan semua data akan kembali seperti semula setelah halaman dimuat ulang.</div></div>
+                <div class="stats">
+                    <article class="stat"><div class="stat-label">Total persediaan</div><div class="stat-value" id="stat-stock">196,250 <small style="font-size:12px;color:#65736c;font-weight:550">kg</small></div><div class="stat-foot">9 produk aktif</div></article>
+                    <article class="stat"><div class="stat-label">Barang masuk hari ini</div><div class="stat-value" id="stat-in">29 <small style="font-size:12px;color:#65736c;font-weight:550">kg</small></div><div class="stat-foot">2 transaksi contoh</div></article>
+                    <article class="stat"><div class="stat-label">Barang keluar hari ini</div><div class="stat-value" id="stat-out">25,75 <small style="font-size:12px;color:#65736c;font-weight:550">kg</small></div><div class="stat-foot">1 transaksi contoh</div></article>
+                    <article class="stat stat-warn"><div class="stat-label">Perlu diperiksa</div><div class="stat-value" id="stat-low">7 <small style="font-size:12px;color:#65736c;font-weight:550">produk</small></div><div class="stat-foot">Stok di bawah batas minimum</div></article>
+                </div>
+                <div class="grid-main">
+                    <article class="panel"><div class="panel-head"><div><h2 class="panel-title">Persediaan per produk</h2><p class="panel-meta">5 produk dengan jumlah stok tertinggi</p></div><button class="btn" data-go="products">Katalog</button></div><div class="panel-body"><div class="stock-bars" id="top-stock-bars"></div><div class="legend"><span><i></i>Jumlah tersedia</span><span style="margin-left:auto">Data contoh · kg</span></div></div></article>
+                    <article class="panel"><div class="panel-head"><div><h2 class="panel-title">Aktivitas terbaru</h2><p class="panel-meta">Catatan latihan</p></div><button class="btn" data-go="movements">Semua</button></div><div class="panel-body"><div class="activity-list" id="recent-activity"></div></div></article>
+                </div>
+                <div class="panel" style="margin-top:15px"><div class="panel-head"><div><h2 class="panel-title">Stok menipis</h2><p class="panel-meta">Produk yang perlu diperhatikan</p></div><button class="btn" data-go="products">Lihat semua</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Produk</th><th>SKU</th><th>Stok tersedia</th><th>Batas minimum</th><th>Status</th></tr></thead><tbody id="low-stock-rows"></tbody></table></div></div>
+            </section>
+            <section class="section" id="view-products">
+                <div class="heading-row"><div><p class="eyebrow">Katalog</p><h1 class="page-title">Produk</h1><p class="page-subtitle">Daftar produk beras dan ketersediaan stok.</p></div><button class="btn primary" data-open="purchase">Simulasikan barang masuk</button></div>
+                <div class="notice"><span class="notice-mark">i</span><div><strong>Katalog contoh.</strong> Harga yang terlihat adalah harga jual. Harga beli tidak ditampilkan di pratinjau publik.</div></div>
+                <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Semua produk</h2><p class="panel-meta">9 produk · nilai persediaan bukan data bisnis nyata</p></div></div><div class="panel-body"><div class="search-row"><input class="search" id="product-search" type="search" placeholder="Cari nama produk atau SKU…" aria-label="Cari produk"><select class="filter" id="stock-filter" aria-label="Filter kondisi stok"><option value="all">Semua stok</option><option value="low">Stok menipis</option><option value="available">Tersedia</option></select></div><div class="table-wrap"><table class="table"><thead><tr><th>Nama produk</th><th>SKU</th><th>Harga jual / kg</th><th>Stok tersedia</th><th>Batas minimum</th><th>Status</th></tr></thead><tbody id="product-rows"></tbody></table></div></div></div>
+            </section>
+            <section class="section" id="view-purchases">
+                <div class="heading-row"><div><p class="eyebrow">Barang masuk</p><h1 class="page-title">Pembelian</h1><p class="page-subtitle">Contoh penerimaan persediaan dari pemasok.</p></div><button class="btn primary" data-open="purchase">Catat barang masuk</button></div>
+                <div class="notice"><span class="notice-mark">i</span><div>Dalam sistem lengkap, transaksi pembelian menambah stok dan menyimpan jejak harga. Simulasi publik ini hanya mengubah tampilan sementara; harga beli tidak ditampilkan.</div></div>
+                <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Riwayat pembelian</h2><p class="panel-meta">Business date · status transaksi</p></div></div><div class="table-wrap"><table class="table"><thead><tr><th>No. transaksi</th><th>Tanggal</th><th>Pemasok</th><th>Barang</th><th>Jumlah</th><th>Status</th></tr></thead><tbody id="purchase-rows"></tbody></table></div></div>
+            </section>
+            <section class="section" id="view-sales">
+                <div class="heading-row"><div><p class="eyebrow">Barang keluar</p><h1 class="page-title">Penjualan</h1><p class="page-subtitle">Contoh pengeluaran barang kepada pelanggan.</p></div><button class="btn primary" data-open="sale">Catat barang keluar</button></div>
+                <div class="notice"><span class="notice-mark">i</span><div>Simulasi memeriksa stok tersedia dan memakai harga jual yang tampil di katalog. Data tidak disimpan.</div></div>
+                <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Riwayat penjualan</h2><p class="panel-meta">Business date · nilai memakai data harga latihan</p></div></div><div class="table-wrap"><table class="table"><thead><tr><th>No. transaksi</th><th>Tanggal</th><th>Pelanggan</th><th>Barang</th><th>Jumlah</th><th>Total contoh</th><th>Status</th></tr></thead><tbody id="sale-rows"></tbody></table></div></div>
+            </section>
+            <section class="section" id="view-movements">
+                <div class="heading-row"><div><p class="eyebrow">Audit persediaan</p><h1 class="page-title">Riwayat stok</h1><p class="page-subtitle">Setiap perubahan stok dicatat sebagai pergerakan.</p></div><div class="actions"><button class="btn" data-open="purchase">Barang masuk</button><button class="btn primary" data-open="sale">Barang keluar</button></div></div>
+                <div class="notice"><span class="notice-mark">i</span><div>Riwayat di bawah adalah contoh. Simulasi baru muncul selama halaman ini terbuka dan tidak tersimpan.</div></div>
+                <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Semua pergerakan</h2><p class="panel-meta">Ledger contoh · Asia/Jakarta</p></div><select class="filter" id="movement-filter" aria-label="Filter jenis pergerakan"><option value="all">Semua jenis</option><option value="in">Barang masuk</option><option value="out">Barang keluar</option></select></div><div class="table-wrap"><table class="table"><thead><tr><th>Tanggal bisnis</th><th>No. transaksi</th><th>Produk</th><th>Jenis</th><th>Masuk</th><th>Keluar</th><th>Saldo</th><th>Dicatat oleh</th></tr></thead><tbody id="movement-rows"></tbody></table></div></div>
+            </section>
+            <section class="section" id="view-reports">
+                <div class="heading-row"><div><p class="eyebrow">Analisis operasional</p><h1 class="page-title">Laporan persediaan</h1><p class="page-subtitle">Ringkasan stok untuk latihan membaca operasional gudang.</p></div><button class="btn" id="export-csv">Unduh CSV contoh</button></div>
+                <div class="notice"><span class="notice-mark">i</span><div>Angka laporan di halaman ini merupakan data latihan, bukan laporan keuangan atau catatan transaksi nyata.</div></div>
+                <div class="stats"><article class="stat"><div class="stat-label">Jenis produk</div><div class="stat-value">9</div><div class="stat-foot">Katalog beras latihan</div></article><article class="stat"><div class="stat-label">Total persediaan</div><div class="stat-value" id="report-stock">196,250 kg</div><div class="stat-foot">Satuan dasar kg</div></article><article class="stat stat-warn"><div class="stat-label">Di bawah minimum</div><div class="stat-value" id="report-low">7 produk</div><div class="stat-foot">Periksa kebutuhan pengadaan</div></article><article class="stat"><div class="stat-label">Nilai laba</div><div class="stat-value" style="font-size:16px;letter-spacing:0">Tidak dihitung</div><div class="stat-foot">Memerlukan metode costing</div></article></div>
+                <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Kondisi stok per produk</h2><p class="panel-meta">Jumlah tersedia dibanding batas minimum</p></div></div><div class="table-wrap"><table class="table"><thead><tr><th>Produk</th><th>SKU</th><th>Stok</th><th>Batas minimum</th><th>Kondisi</th></tr></thead><tbody id="report-rows"></tbody></table></div></div>
+            </section>
+            <p class="footer-note">StockFlow · Pratinjau publik · Semua data pada halaman ini adalah data contoh.</p>
+        </main>
+    </div>
+    <nav class="mobile-nav" aria-label="Navigasi ringkas"><a class="nav-link active" href="#dashboard" data-view="dashboard"><span class="nav-icon">▦</span>Dasbor</a><a class="nav-link" href="#products" data-view="products"><span class="nav-icon">▤</span>Produk</a><a class="nav-link" href="#purchases" data-view="purchases"><span class="nav-icon">↓</span>Masuk</a><a class="nav-link" href="#sales" data-view="sales"><span class="nav-icon">↑</span>Keluar</a><a class="nav-link" href="#movements" data-view="movements"><span class="nav-icon">⇄</span>Riwayat</a></nav>
+</div>
+<dialog class="dialog" id="transaction-dialog" aria-labelledby="dialog-title">
+    <form id="transaction-form">
+        <div class="dialog-head"><div><h2 id="dialog-title">Catat transaksi</h2><p id="dialog-description">Simulasi di browser ini. Data tidak akan disimpan.</p></div><button class="x-btn" type="button" id="dialog-close" aria-label="Tutup">×</button></div>
+        <div class="dialog-body"><div class="field"><label for="contact-name" id="contact-label">Pemasok</label><input id="contact-name" required maxlength="80" placeholder="Contoh: Mitra Padi Sejahtera"></div><div class="field"><label for="product-select">Produk</label><select id="product-select" required></select><span class="field-hint" id="stock-hint">Kuantitas sampai tiga angka desimal.</span></div><div class="field"><label for="quantity">Kuantitas (kg)</label><input id="quantity" type="number" min="0.001" max="999999999999.999" step="0.001" placeholder="0,000" required></div><p id="preview-total" class="field-hint" hidden></p></div>
+        <div class="dialog-foot"><button class="btn" type="button" id="dialog-cancel">Batal</button><button class="btn primary" type="submit" id="confirm-transaction">Tinjau simulasi</button></div>
+    </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+    const products = [
+        {sku:'SANIA-PREMIUM-IR64', name:'Beras Premium Sania', stock:129.5, min:20, price:16000},
+        {sku:'TOPIKOKI-SETRA-RAMOS', name:'Topi Koki Setra Ramos', stock:59.75, min:15, price:17500},
+        {sku:'TOPIKOKI-LONG-GRAIN-CRYSTAL', name:'Topi Koki Long Grain Crystal', stock:7, min:10, price:14000},
+        {sku:'TOPIKOKI-PANDAN-WANGI-CIANJUR', name:'Topi Koki Pandan Wangi Cianjur', stock:0, min:10, price:20000},
+        {sku:'TOPIKOKI-SHORT-GRAIN-HERITAGE', name:'Topi Koki Short Grain Heritage', stock:0, min:10, price:25000},
+        {sku:'TOPIKOKI-SETRA-ROYALE', name:'Topi Koki Setra Royale', stock:0, min:10, price:21000},
+        {sku:'TOPIKOKI-SUPER-SLYP', name:'Topi Koki Super Slyp', stock:0, min:10, price:17000},
+        {sku:'SUPER-BELIDA-IR42', name:'Super Belida IR42', stock:0, min:10, price:17500},
+        {sku:'HOKAIRI-JAPONICA', name:'Hokairi Japonica', stock:0, min:5, price:32000},
+    ];
+    const movements = [
+        {date:'05 Nov 2026', number:'SAL-20261105-0001', sku:products[0].sku, qty:15.5, type:'out', by:'Owner'},
+        {date:'05 Nov 2026', number:'SAL-20261105-0001', sku:products[1].sku, qty:5.25, type:'out', by:'Owner'},
+        {date:'05 Nov 2026', number:'SAL-20261105-0001', sku:products[2].sku, qty:5, type:'out', by:'Owner'},
+        {date:'05 Nov 2026', number:'PUR-20261105-0002', sku:products[2].sku, qty:4, type:'in', by:'Staff'},
+        {date:'05 Nov 2026', number:'PUR-20261105-0001', sku:products[0].sku, qty:25, type:'in', by:'Owner'},
+        {date:'04 Nov 2026', number:'ADJ-20261104-0001', sku:products[0].sku, qty:120, type:'in', by:'Owner'},
+        {date:'04 Nov 2026', number:'ADJ-20261104-0001', sku:products[1].sku, qty:65, type:'in', by:'Owner'},
+        {date:'04 Nov 2026', number:'ADJ-20261104-0001', sku:products[2].sku, qty:8, type:'in', by:'Owner'},
+    ];
+    const purchases = [
+        {number:'PUR-20261105-0001', date:'05 Nov 2026', contact:'Mitra Padi Sejahtera', item:'Beras Premium Sania', qty:25, status:'Terkonfirmasi'},
+        {number:'PUR-20261105-0002', date:'05 Nov 2026', contact:'Mitra Padi Sejahtera', item:'Topi Koki Long Grain Crystal', qty:4, status:'Terkonfirmasi'},
+    ];
+    const sales = [
+        {number:'SAL-20261105-0001', date:'05 Nov 2026', contact:'Toko Beras Nusantara', item:'3 produk', qty:25.75, total:409875, status:'Terkonfirmasi'},
+    ];
+    const $ = (id) => document.getElementById(id);
+    const fmtQty = (n) => Number(n).toLocaleString('id-ID',{minimumFractionDigits:0,maximumFractionDigits:3});
+    const fmtMoney = (n) => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Math.round(n));
+    const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    let selectedType = 'purchase';
+    let generated = 3;
+    let toastTimer;
+
+    function productRows() {
+        const term = ($('product-search')?.value || '').trim().toLowerCase();
+        const filter = $('stock-filter')?.value || 'all';
+        return products.filter((p) => {
+            const matchesTerm = `${p.name} ${p.sku}`.toLowerCase().includes(term);
+            const isLow = p.stock < p.min;
+            return matchesTerm && (filter === 'all' || (filter === 'low' && isLow) || (filter === 'available' && p.stock > 0));
+        });
+    }
+    function productTable(rows, includePrice = true) {
+        return rows.map((p) => `<tr><td><span class="product-name">${esc(p.name)}</span><span class="sub-text">Beras · kg</span></td><td>${esc(p.sku)}</td>${includePrice ? `<td>${fmtMoney(p.price)}</td>` : ''}<td>${fmtQty(p.stock)} kg</td><td>${fmtQty(p.min)} kg</td><td><span class="status ${p.stock < p.min ? 'warn' : ''}">${p.stock < p.min ? 'Stok menipis' : 'Tersedia'}</span></td></tr>`).join('');
+    }
+    function refresh() {
+        const total = products.reduce((sum,p) => sum + p.stock, 0);
+        const low = products.filter((p) => p.stock < p.min).length;
+        const todayIn=movements.filter((m)=>m.date==='05 Nov 2026'&&m.type==='in').reduce((sum,m)=>sum+m.qty,0);
+        const todayOut=movements.filter((m)=>m.date==='05 Nov 2026'&&m.type==='out').reduce((sum,m)=>sum+m.qty,0);
+        $('stat-stock').innerHTML = `${fmtQty(total)} <small style="font-size:12px;color:#65736c;font-weight:550">kg</small>`;
+        $('stat-low').innerHTML = `${low} <small style="font-size:12px;color:#65736c;font-weight:550">produk</small>`;
+        $('stat-in').innerHTML = `${fmtQty(todayIn)} <small style="font-size:12px;color:#65736c;font-weight:550">kg</small>`;
+        $('stat-out').innerHTML = `${fmtQty(todayOut)} <small style="font-size:12px;color:#65736c;font-weight:550">kg</small>`;
+        const top=products.slice().sort((a,b)=>b.stock-a.stock).slice(0,5);const max=Math.max(...top.map((p)=>p.stock),1);
+        $('top-stock-bars').innerHTML=top.map((p)=>`<div class="stock-bar-row"><span class="stock-bar-name">${esc(p.name)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,p.stock/max*100))}%"></div></div><span class="stock-bar-value">${fmtQty(p.stock)} kg</span></div>`).join('');
+        $('report-stock').textContent = `${fmtQty(total)} kg`;
+        $('report-low').textContent = `${low} produk`;
+        $('product-rows').innerHTML = productTable(productRows());
+        $('low-stock-rows').innerHTML = productTable(products.filter((p) => p.stock < p.min).slice(0,5), false);
+        $('report-rows').innerHTML = productTable(products, false);
+        $('purchase-rows').innerHTML = purchases.map((p) => `<tr><td>${esc(p.number)}</td><td>${esc(p.date)}</td><td>${esc(p.contact)}</td><td>${esc(p.item)}</td><td>${fmtQty(p.qty)} kg</td><td><span class="status">${esc(p.status)}</span></td></tr>`).join('');
+        $('sale-rows').innerHTML = sales.map((p) => `<tr><td>${esc(p.number)}</td><td>${esc(p.date)}</td><td>${esc(p.contact)}</td><td>${esc(p.item)}</td><td>${fmtQty(p.qty)} kg</td><td>${fmtMoney(p.total)}</td><td><span class="status">${esc(p.status)}</span></td></tr>`).join('');
+        const filter = $('movement-filter')?.value || 'all';
+        $('movement-rows').innerHTML = movements.filter((m) => filter === 'all' || m.type === filter).map((m) => { const p = products.find((x) => x.sku === m.sku); return `<tr><td>${esc(m.date)}</td><td>${esc(m.number)}</td><td>${esc(p?.name || '')}</td><td>${m.type === 'in' ? 'Barang masuk' : 'Barang keluar'}</td><td>${m.type === 'in' ? `${fmtQty(m.qty)} kg` : '—'}</td><td>${m.type === 'out' ? `${fmtQty(m.qty)} kg` : '—'}</td><td>${fmtQty(p?.stock || 0)} kg</td><td>${esc(m.by)}</td></tr>`; }).join('');
+        $('recent-activity').innerHTML = movements.slice(0,3).map((m) => {const p=products.find((x)=>x.sku===m.sku);return `<div class="activity"><span class="activity-sign ${m.type==='out'?'minus':''}">${m.type==='in'?'+':'−'}</span><div><div class="activity-title">${m.type==='in'?'Barang masuk':'Barang keluar'} · ${esc(p?.name||'')}</div><div class="activity-desc">${esc(m.number)} · ${esc(m.date)}</div></div><span class="activity-qty">${m.type==='in'?'+':'−'}${fmtQty(m.qty)} kg</span></div>`;}).join('');
+        const options = products.map((p) => `<option value="${esc(p.sku)}">${esc(p.name)} · stok ${fmtQty(p.stock)} kg</option>`).join('');
+        const select = $('product-select'); const previous = select.value; select.innerHTML = options; if (products.some((p) => p.sku === previous)) select.value = previous;
+    }
+    function navigate(view) {
+        const name = {dashboard:'Dasbor',products:'Produk',purchases:'Pembelian',sales:'Penjualan',movements:'Riwayat stok',reports:'Laporan'}[view] || 'Dasbor';
+        document.querySelectorAll('.section').forEach((el) => el.classList.toggle('active', el.id === `view-${view}`));
+        document.querySelectorAll('[data-view]').forEach((el) => el.classList.toggle('active', el.dataset.view === view));
+        $('breadcrumb').textContent = name; history.replaceState(null,'',`#${view}`); window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function showToast(message) {
+        $('toast').textContent = message; $('toast').classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3500);
+    }
+    function openDialog(type) {
+        selectedType=type; const isPurchase=type==='purchase';
+        $('dialog-title').textContent=isPurchase?'Simulasikan barang masuk':'Simulasikan barang keluar';
+        $('contact-label').textContent=isPurchase?'Pemasok':'Pelanggan';
+        $('contact-name').placeholder=isPurchase?'Contoh: Mitra Padi Sejahtera':'Contoh: Toko Beras Nusantara';
+        $('stock-hint').textContent=isPurchase?'Jumlah akan ditambahkan ke stok sementara. Harga beli tidak ditampilkan.':'Stok akan dikurangi sementara. Harga jual mengikuti katalog contoh.';
+        $('preview-total').hidden=isPurchase;
+        $('confirm-transaction').textContent='Tinjau simulasi';
+        $('transaction-dialog').showModal(); $('contact-name').focus();
+    }
+    document.querySelectorAll('[data-view]').forEach((el)=>el.addEventListener('click',(event)=>{event.preventDefault();navigate(el.dataset.view);}));
+    document.querySelectorAll('[data-go]').forEach((el)=>el.addEventListener('click',()=>navigate(el.dataset.go)));
+    document.querySelectorAll('[data-open]').forEach((el)=>el.addEventListener('click',()=>openDialog(el.dataset.open)));
+    $('dialog-close').addEventListener('click',()=>$('transaction-dialog').close());
+    $('dialog-cancel').addEventListener('click',()=>$('transaction-dialog').close());
+    $('product-search').addEventListener('input',refresh);
+    $('stock-filter').addEventListener('change',refresh);
+    $('movement-filter').addEventListener('change',refresh);
+    $('product-select').addEventListener('change',()=>{const p=products.find((x)=>x.sku===$('product-select').value);$('stock-hint').dataset.stock=p?String(p.stock):'0';});
+    $('transaction-form').addEventListener('submit',(event)=>{
+        event.preventDefault();
+        const name=$('contact-name').value.trim();const p=products.find((x)=>x.sku===$('product-select').value);const qty=Number($('quantity').value);
+        if(!name||!p||!Number.isFinite(qty)||qty<=0||Math.round(qty*1000)!==qty*1000){showToast('Periksa kembali nama dan kuantitas.');return;}
+        if(selectedType==='sale'&&qty>p.stock){showToast(`Stok ${p.name} hanya ${fmtQty(p.stock)} kg.`);return;}
+        if($('confirm-transaction').textContent==='Tinjau simulasi'){
+            if(selectedType==='sale'){$('preview-total').hidden=false;$('preview-total').textContent=`Perkiraan total: ${fmtMoney(Math.round(p.price*qty))} · harga latihan`;}
+            $('confirm-transaction').textContent='Konfirmasi simulasi';return;
+        }
+        if(selectedType==='purchase')p.stock+=qty;else p.stock-=qty;
+        generated+=1;const number=`${selectedType==='purchase'?'PUR':'SAL'}-20261105-${String(generated).padStart(4,'0')}`;const date='05 Nov 2026';
+        movements.unshift({date,number,sku:p.sku,qty,type:selectedType==='purchase'?'in':'out',by:'Pengunjung'});
+        if(selectedType==='purchase')purchases.unshift({number,date,contact:name,item:p.name,qty,status:'Simulasi'});else sales.unshift({number,date,contact:name,item:p.name,qty,total:Math.round(p.price*qty),status:'Simulasi'});
+        refresh();$('transaction-form').reset();$('transaction-dialog').close();navigate(selectedType==='purchase'?'purchases':'sales');showToast('Simulasi selesai. Perubahan ini tidak disimpan dan akan hilang saat halaman dimuat ulang.');
+    });
+    $('export-csv').addEventListener('click',()=>{
+        const rows=[['Nama produk','SKU','Stok (kg)','Batas minimum (kg)'],...products.map((p)=>[p.name,p.sku,p.stock.toFixed(3),p.min.toFixed(3)])];
+        const csv=rows.map((row)=>row.map((value)=>`"${String(value).replaceAll('"','""')}"`).join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='stockflow-pratinjau.csv';link.click();URL.revokeObjectURL(url);showToast('CSV berisi data latihan, bukan data tersimpan.');
+    });
+    refresh();
+    const initial=location.hash.replace('#','');if(['dashboard','products','purchases','sales','movements','reports'].includes(initial))navigate(initial);
+})();
+</script>
+</body>
+</html>

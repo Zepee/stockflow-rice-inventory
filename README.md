@@ -58,23 +58,18 @@ Optional sample catalog and transactions can be added after creating an Owner:
 php artisan db:seed --class=DemoDataSeeder
 ```
 
-## Portfolio deployment
+## Public portfolio preview
 
-The deployment files target a free Render web service and TiDB Cloud Starter's free MySQL-compatible quota. The application container runs database migrations on startup and seeds the default warehouse. TiDB Cloud Starter requires a TLS connection; the Render blueprint sets the system CA bundle path.
+The Vercel configuration publishes a static, interactive preview from `public/demo.html`. It does not run Laravel, require a database, or expose login credentials. Product and transaction records are clearly marked sample data. Purchase prices are not shown.
 
-This setup is for a portfolio demo, not production use. Render's free service can sleep when idle and its local filesystem is temporary. TiDB Cloud Starter has a monthly free quota; requests may be throttled when the quota is reached. TiDB is MySQL-compatible rather than MySQL itself, so verify the inventory locking and transaction flows against the deployed database before relying on it.
+Visitors can move between the dashboard, products, purchases, sales, stock history, and reports. Stock-in and stock-out forms are simulations held only in the current page session. Nothing is sent to a database or saved in the browser; reloading the page resets the sample data.
 
-Set these secret or environment values in the hosting dashboard; never commit them:
+Vercel builds the preview using `node scripts/build-static-demo.mjs` and publishes `dist/stockflow-demo`. The deployment needs no database settings, `APP_KEY`, or other secret environment variables. Select this repository in Vercel and keep the project root at the repository root; `vercel.json` contains the build configuration.
 
-- `APP_KEY` (generate with `php artisan key:generate --show`)
-- `APP_URL`
-- `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`
-
-After the first deployment, create the Owner through the `stockflow:create-initial-owner` Artisan command from a trusted local environment connected to the hosted database. Do not publish Owner or Staff passwords in this repository. Seed sample data only after the Owner exists.
+The full Laravel application remains available for local use following the steps above. Its authenticated workflows still require MySQL and are not part of this static public preview.
 
 ## Security notes
 
-- `.env`, SQLite databases, dependency folders, and built assets are excluded from source control or the Docker build context.
-- Keep `APP_DEBUG=false` on the hosted service.
-- Use a unique strong password for every demo account and rotate it if it was shared publicly.
+- `.env`, SQLite databases, dependency folders, generated static output, and built assets are excluded from source control.
+- Never publish local Owner or Staff passwords in this repository.
 - Do not connect a public demo to a business database or real inventory.
