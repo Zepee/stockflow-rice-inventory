@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+#transaction-dialog {
+    opacity: 0;
+    transform: translateY(0.6rem) scale(0.99);
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        display 180ms allow-discrete,
+        overlay 180ms allow-discrete;
+}
+
+#transaction-dialog[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+#transaction-dialog::backdrop {
+    background-color: rgb(15 23 42 / 0);
+    transition: background-color 180ms ease;
+}
+
+#transaction-dialog[open]::backdrop {
+    background-color: rgb(15 23 42 / 55%);
+}
+
+#transaction-dialog-content {
+    transition: opacity 140ms ease;
+}
+
+#transaction-dialog-content[aria-busy="true"] {
+    opacity: 0.72;
+}
+
+@starting-style {
+    #transaction-dialog[open] {
+        opacity: 0;
+        transform: translateY(0.6rem) scale(0.99);
+    }
+
+    #transaction-dialog[open]::backdrop {
+        background-color: rgb(15 23 42 / 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #transaction-dialog,
+    #transaction-dialog::backdrop,
+    #transaction-dialog-content {
+        transition: none;
+    }
+}
